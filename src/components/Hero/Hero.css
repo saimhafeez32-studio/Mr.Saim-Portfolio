@@ -1,0 +1,369 @@
+.hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+
+    background-image:url("/hero-bg.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    overflow:hidden;
+}
+
+/* ===========================
+   Overlay
+=========================== */
+
+.hero-overlay{
+    position:absolute;
+    inset:0;
+
+    background:linear-gradient(
+        90deg,
+        rgba(0,0,0,.40) 0%,
+        rgba(0,0,0,.20) 45%,
+        rgba(0,0,0,.08) 100%
+    );
+
+    z-index:1;
+}
+
+/* ===========================
+   Premium Background Shapes
+=========================== */
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:700px;
+    height:700px;
+
+    right:-220px;
+    top:-140px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(circle,
+    rgba(120,120,120,.28) 0%,
+    rgba(170,170,170,.16) 45%,
+    transparent 75%);
+
+    filter:blur(70px);
+
+    z-index:1;
+}
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:520px;
+    height:520px;
+
+    right:12%;
+    bottom:-200px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.10);
+
+    filter:blur(120px);
+
+    z-index:1;
+}
+
+/* ===========================
+   Container
+=========================== */
+
+.hero-container{
+
+    position:relative;
+    z-index:2;
+
+    width:min(1250px,92%);
+    margin:auto;
+}
+
+.hero-content{
+
+    max-width:720px;
+}
+
+/* ===========================
+   Heading
+=========================== */
+
+.hero h1{
+
+    font-size:clamp(3.5rem,7vw,6.8rem);
+
+    line-height:.95;
+
+    font-weight:900;
+
+    color:#ffffff;
+
+    letter-spacing:-4px;
+
+    text-shadow:0 8px 35px rgba(0,0,0,.35);
+
+    margin-bottom:30px;
+}
+
+.hero h1 span{
+
+    color:#ffffff;
+}
+
+/* ===========================
+   Subtitle
+=========================== */
+
+.hero-subtitle{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    align-items:center;
+
+    gap:14px 24px;
+
+    max-width:700px;
+
+    margin-bottom:50px;
+
+    color:rgba(255,255,255,.94);
+
+    font-size:1.12rem;
+
+    font-weight:600;
+
+    line-height:1.8;
+}
+
+.hero-subtitle span{
+
+    display:flex;
+
+    align-items:center;
+}
+
+.hero-subtitle span::before{
+
+    content:"";
+
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:#ffffff;
+
+    margin-right:12px;
+
+    opacity:.9;
+}
+
+/* ===========================
+   Buttons
+=========================== */
+
+.hero-buttons{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+}
+
+.primary-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-decoration:none;
+
+    cursor:pointer;
+
+    padding:17px 36px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:#ffffff;
+
+    color:#111827;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    transition:all .35s ease;
+}
+
+.primary-btn:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 20px 45px rgba(255,255,255,.25);
+
+    text-decoration:none;
+
+    color:#111827;
+}
+
+.secondary-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+    text-decoration:none;
+
+    padding:17px 36px;
+
+    border-radius:16px;
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.45);
+
+    color:#ffffff;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    transition:all .35s ease;
+}
+
+.secondary-btn:hover{
+
+    transform:translateY(-5px);
+
+    background:rgba(255,255,255,.22);
+
+    color:#ffffff;
+}
+
+/* ===========================
+   Tablet
+=========================== */
+
+@media(max-width:992px){
+
+.hero{
+
+    padding:140px 0 80px;
+}
+
+.hero h1{
+
+    font-size:4rem;
+
+    letter-spacing:-2px;
+}
+
+.hero::after{
+
+    width:500px;
+    height:500px;
+}
+
+.hero-subtitle{
+
+    font-size:1.05rem;
+}
+
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media(max-width:768px){
+
+.hero{
+
+    text-align:center;
+
+    padding:130px 0 80px;
+}
+
+.hero-content{
+
+    margin:auto;
+}
+
+.hero-subtitle{
+
+    justify-content:center;
+
+    gap:12px 18px;
+
+    font-size:1rem;
+}
+
+.hero-buttons{
+
+    flex-direction:column;
+
+    width:100%;
+}
+
+.primary-btn,
+.secondary-btn{
+
+    width:100%;
+}
+
+.hero h1{
+
+    font-size:3rem;
+}
+
+.hero::before,
+.hero::after{
+
+    display:none;
+}
+
+}
+
+@media(max-width:480px){
+
+.hero h1{
+
+    font-size:2.5rem;
+}
+
+.hero-subtitle{
+
+    font-size:.95rem;
+}
+
+}

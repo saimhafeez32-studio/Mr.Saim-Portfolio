@@ -1,0 +1,322 @@
+/* ===================================
+   CONTACT MODAL
+=================================== */
+
+.contact-modal{
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.contact-overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.72);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+}
+
+.contact-card{
+
+    position:relative;
+    z-index:2;
+
+    width:min(92%,540px);
+
+    padding:50px 40px;
+
+    text-align:center;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.97);
+
+    border:1px solid rgba(255,255,255,.65);
+
+    box-shadow:
+    0 35px 80px rgba(0,0,0,.22);
+
+    animation:contactUp .35s ease;
+}
+
+/* ===========================
+   CLOSE BUTTON
+=========================== */
+
+.contact-close{
+
+    position:absolute;
+
+    top:18px;
+    right:18px;
+
+    width:44px;
+    height:44px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#f5f5f5;
+
+    color:#111;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:.35s ease;
+}
+
+.contact-close:hover{
+
+    background:#4B5563;
+
+    color:#fff;
+
+    transform:rotate(90deg);
+}
+
+/* ===========================
+   TAG
+=========================== */
+
+.contact-tag{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:10px 22px;
+
+    border-radius:999px;
+
+    background:#f3f4f6;
+
+    color:#4B5563;
+
+    font-size:.82rem;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin-bottom:24px;
+}
+
+/* ===========================
+   TITLE
+=========================== */
+
+.contact-card h2{
+
+    font-size:2rem;
+
+    color:#111111;
+
+    margin-bottom:18px;
+
+    line-height:1.2;
+}
+
+/* ===========================
+   TEXT
+=========================== */
+
+.contact-card p{
+
+    color:#6b7280;
+
+    line-height:1.8;
+
+    margin-bottom:36px;
+
+    font-size:1rem;
+}
+
+/* ===========================
+   OPTIONS
+=========================== */
+
+.contact-options{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+}
+
+.contact-option{
+
+    text-decoration:none;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:30px 20px;
+
+    border-radius:22px;
+
+    background:#fafafa;
+
+    border:1px solid #ececec;
+
+    color:#111;
+
+    transition:all .35s ease;
+}
+
+.contact-option svg{
+
+    font-size:2.4rem;
+
+    color:#4B5563;
+
+    transition:.35s ease;
+}
+
+.contact-option span{
+
+    font-size:1rem;
+
+    font-weight:700;
+}
+
+.contact-option:hover{
+
+    transform:translateY(-8px);
+
+    background:#ffffff;
+
+    border-color:#4B5563;
+
+    box-shadow:0 22px 45px rgba(0,0,0,.08);
+}
+
+.contact-option:hover svg{
+
+    transform:scale(1.15);
+}
+
+/* ===========================
+   ANIMATION
+=========================== */
+
+@keyframes contactUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(45px) scale(.94);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0) scale(1);
+    }
+}
+
+/* ===========================
+   TABLET
+=========================== */
+
+@media(max-width:768px){
+
+.contact-card{
+
+    width:min(92%,480px);
+
+    padding:40px 28px;
+
+    border-radius:24px;
+}
+
+.contact-card h2{
+
+    font-size:1.7rem;
+}
+
+.contact-options{
+
+    gap:16px;
+}
+
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media(max-width:480px){
+
+.contact-card{
+
+    width:92%;
+
+    padding:32px 20px;
+
+    border-radius:20px;
+}
+
+.contact-tag{
+
+    font-size:.75rem;
+}
+
+.contact-card h2{
+
+    font-size:1.45rem;
+}
+
+.contact-card p{
+
+    font-size:.95rem;
+
+    margin-bottom:28px;
+}
+
+.contact-options{
+
+    grid-template-columns:1fr;
+
+    gap:14px;
+}
+
+.contact-option{
+
+    padding:22px 18px;
+}
+
+.contact-option svg{
+
+    font-size:2rem;
+}
+
+.contact-close{
+
+    width:40px;
+    height:40px;
+}
+
+}

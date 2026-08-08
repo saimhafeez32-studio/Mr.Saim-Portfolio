@@ -1,0 +1,422 @@
+/* ===================================
+   CTA SECTION
+=================================== */
+
+.cta-section{
+    position:relative;
+    padding:120px 0;
+
+    background-image:url("/cta-bg.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    overflow:hidden;
+}
+
+/* ===========================
+   DARK OVERLAY
+=========================== */
+
+.cta-overlay{
+    position:absolute;
+    inset:0;
+
+    background:linear-gradient(
+        180deg,
+        rgba(0,0,0,.58),
+        rgba(0,0,0,.62)
+    );
+
+    z-index:1;
+}
+
+/* ===========================
+   PREMIUM GLOW
+=========================== */
+
+.cta-section::before{
+    content:"";
+
+    position:absolute;
+
+    top:-220px;
+    right:-220px;
+
+    width:650px;
+    height:650px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(255,255,255,.14) 0%,
+        rgba(255,255,255,.06) 45%,
+        transparent 72%
+    );
+
+    filter:blur(80px);
+
+    z-index:1;
+}
+
+/* ===========================
+   CONTENT
+=========================== */
+
+.cta-content{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:900px;
+
+    margin:0 auto;
+
+    text-align:center;
+}
+
+/* ===========================
+   TAG
+=========================== */
+
+.cta-tag{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:12px 24px;
+
+    margin-bottom:28px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.12);
+
+    border:1px solid rgba(255,255,255,.22);
+
+    backdrop-filter:blur(16px);
+
+    -webkit-backdrop-filter:blur(16px);
+
+    color:#ffffff;
+
+    font-size:.85rem;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+}
+
+/* ===========================
+   TITLE
+=========================== */
+
+.cta-title{
+
+    font-size:clamp(2.8rem,6vw,5rem);
+
+    line-height:1.08;
+
+    letter-spacing:-2px;
+
+    color:#ffffff;
+
+    margin-bottom:22px;
+
+    text-shadow:0 12px 35px rgba(0,0,0,.30);
+}
+
+.cta-title span{
+
+    color:#ffffff;
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+
+.cta-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin-top:48px;
+}
+
+.cta-secondary{
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:18px 48px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:#ffffff;
+
+    color:#111111;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:all .35s ease;
+
+    box-shadow:0 18px 40px rgba(0,0,0,.18);
+}
+
+.cta-secondary:hover{
+
+    transform:translateY(-5px);
+
+    background:#f5f5f5;
+
+    box-shadow:0 25px 55px rgba(0,0,0,.25);
+}
+
+/* ===================================
+   DOWNLOAD BAR
+=================================== */
+
+.cta-download{
+
+    position:relative;
+
+    z-index:2;
+
+    margin-top:90px;
+
+    padding:32px 36px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:30px;
+
+    border-radius:24px;
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(20px);
+
+    -webkit-backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.18);
+
+    box-shadow:0 20px 60px rgba(0,0,0,.20);
+}
+
+/* Left Side */
+
+.cta-download-text{
+
+    flex:1;
+}
+
+.cta-download-text h3{
+
+    color:#ffffff;
+
+    font-size:1.5rem;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+    line-height:1.3;
+}
+
+.cta-download-text h3 span{
+
+    color:#ffffff;
+
+    font-weight:800;
+}
+
+.cta-download-text p{
+
+    color:rgba(255,255,255,.82);
+
+    font-size:1rem;
+
+    line-height:1.7;
+}
+
+/* Right Button */
+
+.cta-download-btn{
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-shrink:0;
+
+    padding:18px 38px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:#ffffff;
+
+    color:#111111;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:all .35s ease;
+}
+
+.cta-download-btn:hover{
+
+    transform:translateY(-4px);
+
+    background:#f5f5f5;
+
+    box-shadow:0 18px 40px rgba(0,0,0,.25);
+}
+
+/* ===================================
+   RESPONSIVE
+=================================== */
+
+@media (max-width:992px){
+
+.cta-section{
+
+    padding:100px 0;
+}
+
+.cta-download{
+
+    flex-direction:column;
+
+    text-align:center;
+
+    padding:30px 24px;
+}
+
+.cta-download-text{
+
+    text-align:center;
+}
+
+}
+
+@media (max-width:768px){
+
+.cta-section{
+
+    padding:80px 0;
+}
+
+.cta-title{
+
+    font-size:2.4rem;
+}
+
+.cta-buttons{
+
+    margin-top:36px;
+}
+
+.cta-secondary{
+
+    width:100%;
+}
+
+.cta-download{
+
+    margin-top:60px;
+
+    padding:26px 20px;
+
+    border-radius:20px;
+}
+
+.cta-download-text h3{
+
+    font-size:1.25rem;
+}
+
+.cta-download-text p{
+
+    font-size:.95rem;
+}
+
+.cta-download-btn{
+
+    width:100%;
+}
+
+}
+
+@media (max-width:480px){
+
+.cta-section{
+
+    padding:70px 0;
+}
+
+.cta-tag{
+
+    font-size:.75rem;
+
+    padding:10px 18px;
+}
+
+.cta-title{
+
+    font-size:2rem;
+}
+
+.cta-download{
+
+    margin-top:50px;
+
+    padding:22px 18px;
+}
+
+.cta-download-text h3{
+
+    font-size:1.1rem;
+}
+
+.cta-download-text p{
+
+    font-size:.9rem;
+}
+
+.cta-download-btn{
+
+    padding:16px 20px;
+}
+
+}

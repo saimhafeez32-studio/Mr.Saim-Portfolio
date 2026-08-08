@@ -1,0 +1,300 @@
+/* ===================================
+   TIPS MODAL
+=================================== */
+
+.tips-modal{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+}
+
+.tips-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(0,0,0,.72);
+
+    backdrop-filter:blur(8px);
+
+    -webkit-backdrop-filter:blur(8px);
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.tips-card{
+
+    position:relative;
+
+    z-index:2;
+
+    width:min(92%,560px);
+
+    padding:50px 40px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.97);
+
+    border:1px solid rgba(255,255,255,.65);
+
+    text-align:center;
+
+    box-shadow:0 30px 80px rgba(0,0,0,.25);
+
+    animation:tipsUp .35s ease;
+}
+
+/* Close */
+
+.tips-close{
+
+    position:absolute;
+
+    top:18px;
+
+    right:18px;
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#f3f4f6;
+
+    color:#111111;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.tips-close:hover{
+
+    background:#4B5563;
+
+    color:#ffffff;
+}
+
+/* Tag */
+
+.tips-tag{
+
+    display:inline-block;
+
+    padding:10px 20px;
+
+    border-radius:999px;
+
+    background:#f3f4f6;
+
+    color:#4B5563;
+
+    font-size:.8rem;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin-bottom:24px;
+}
+
+/* ===========================
+   TITLE
+=========================== */
+
+.tips-card h2{
+
+    font-size:2.2rem;
+
+    line-height:1.2;
+
+    color:#111111;
+
+    margin-bottom:18px;
+
+    font-weight:800;
+
+    letter-spacing:-1px;
+}
+
+.tips-card p{
+
+    color:#6b7280;
+
+    line-height:1.8;
+
+    font-size:1rem;
+
+    margin-bottom:34px;
+}
+
+/* ===========================
+   GOOGLE BUTTON
+=========================== */
+
+.google-btn{
+
+    width:100%;
+
+    height:62px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:#111111;
+
+    color:#ffffff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:14px;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:all .35s ease;
+}
+
+.google-btn svg{
+
+    font-size:1.8rem;
+
+    background:#ffffff;
+
+    border-radius:50%;
+}
+
+.google-btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.18);
+}
+
+.tips-card small{
+
+    display:block;
+
+    margin-top:18px;
+
+    color:#9ca3af;
+
+    font-size:.9rem;
+
+    line-height:1.6;
+}
+
+/* ===========================
+   ANIMATION
+=========================== */
+
+@keyframes tipsUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px) scale(.95);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0) scale(1);
+    }
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:768px){
+
+.tips-card{
+
+    padding:40px 28px;
+
+    border-radius:24px;
+}
+
+.tips-card h2{
+
+    font-size:1.8rem;
+}
+
+.google-btn{
+
+    height:58px;
+}
+
+}
+
+@media(max-width:480px){
+
+.tips-card{
+
+    width:min(94%,100%);
+
+    padding:32px 22px;
+
+    border-radius:20px;
+}
+
+.tips-card h2{
+
+    font-size:1.5rem;
+}
+
+.tips-card p{
+
+    font-size:.95rem;
+}
+
+.google-btn{
+
+    height:56px;
+
+    font-size:.95rem;
+}
+
+.tips-close{
+
+    width:38px;
+
+    height:38px;
+}
+
+}

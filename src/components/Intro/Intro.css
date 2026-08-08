@@ -1,0 +1,60 @@
+.intro{
+    position:fixed;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#ffffff;
+
+    z-index:99999;
+
+    overflow:hidden;
+}
+
+.intro__title{
+
+    font-family:"Inter",sans-serif;
+
+    font-size:clamp(4rem,10vw,8.5rem);
+
+    font-weight:900;
+
+    color:#4B5563;
+
+    letter-spacing:-3px;
+
+    line-height:1;
+
+    user-select:none;
+
+    white-space:nowrap;
+
+    text-shadow:
+        0 10px 35px rgba(75,85,99,.12);
+
+    will-change:transform,opacity;
+}
+
+@media (max-width:768px){
+
+.intro__title{
+
+    font-size:clamp(3rem,15vw,5.5rem);
+
+    letter-spacing:-2px;
+
+}
+
+}
+
+@media (max-width:480px){
+
+.intro__title{
+
+    font-size:3rem;
+
+}
+
+}
