@@ -12,40 +12,57 @@ const Navbar = () => {
       setScrolled(window.scrollY > 40);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "auto";
+    document.body.style.overflow = menuOpen ? "hidden" : "";
 
     return () => {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = "";
     };
   }, [menuOpen]);
 
-  const closeMenu = () => setMenuOpen(false);
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
 
   return (
     <>
       <header className={scrolled ? "navbar scrolled" : "navbar"}>
-        <div className="container navbar-container">
-
+        <div className="navbar-inner">
           <Link to="/" className="logo" onClick={closeMenu}>
             Mr.<span>Saim</span>
           </Link>
 
           <nav className={menuOpen ? "nav active" : "nav"}>
-            <NavLink to="/" onClick={closeMenu}>Home</NavLink>
-            <NavLink to="/about" onClick={closeMenu}>About</NavLink>
-            <NavLink to="/projects" onClick={closeMenu}>Projects</NavLink>
-            <NavLink to="/contact" onClick={closeMenu}>Contact</NavLink>
+            <NavLink to="/" onClick={closeMenu}>
+              Home
+            </NavLink>
+
+            <NavLink to="/about" onClick={closeMenu}>
+              About
+            </NavLink>
+
+            <NavLink to="/projects" onClick={closeMenu}>
+              Projects
+            </NavLink>
+
+            <NavLink to="/contact" onClick={closeMenu}>
+              Contact
+            </NavLink>
           </nav>
 
           <button
             className="menu-btn"
-            onClick={() => setMenuOpen(!menuOpen)}
+            onClick={() => setMenuOpen((prev) => !prev)}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            type="button"
           >
             {menuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
@@ -55,6 +72,7 @@ const Navbar = () => {
       <div
         className={menuOpen ? "mobile-overlay active" : "mobile-overlay"}
         onClick={closeMenu}
+        aria-hidden="true"
       />
     </>
   );

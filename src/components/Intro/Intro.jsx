@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 import "./Intro.css";
 
@@ -11,11 +11,13 @@ const Intro = () => {
       setShow(false);
     }, 3500);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+    };
   }, []);
 
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence>
       {show && (
         <motion.div
           className="intro"
@@ -31,7 +33,7 @@ const Intro = () => {
           <motion.h1
             className="intro__title"
             initial={{
-              opacity: -50,
+              opacity: 0,
               scale: 0.9,
               y: 20,
             }}
