@@ -1,5 +1,4 @@
 import "./SkillsSection.css";
-import { Link } from "react-router-dom";
 
 import {
   Globe,
@@ -13,7 +12,7 @@ import {
 const SkillsSection = () => {
   return (
     <section className="skills-section">
-      <div className="container">
+      <div className="skills-container">
 
         {/* Header */}
 
@@ -37,6 +36,7 @@ const SkillsSection = () => {
 
         </div>
 
+
         {/* Skills Grid */}
 
         <div className="skills-grid">
@@ -52,6 +52,7 @@ const SkillsSection = () => {
             </p>
           </div>
 
+
           <div className="skill-card">
             <Palette className="skill-icon" />
 
@@ -62,6 +63,7 @@ const SkillsSection = () => {
               simplicity and premium experiences.
             </p>
           </div>
+
 
           <div className="skill-card">
             <MonitorSmartphone className="skill-icon" />
@@ -74,6 +76,7 @@ const SkillsSection = () => {
             </p>
           </div>
 
+
           <div className="skill-card">
             <PenTool className="skill-icon" />
 
@@ -84,6 +87,7 @@ const SkillsSection = () => {
               with modern aesthetics.
             </p>
           </div>
+
 
           <div className="skill-card">
             <TrendingUp className="skill-icon" />
@@ -96,6 +100,7 @@ const SkillsSection = () => {
             </p>
           </div>
 
+
           <div className="skill-card">
             <Rocket className="skill-icon" />
 
@@ -106,19 +111,6 @@ const SkillsSection = () => {
               accessibility and excellent user experience.
             </p>
           </div>
-
-        </div>
-
-        {/* Button */}
-
-        <div className="skills-button">
-
-          <Link
-            to="/projects"
-            className="skills-btn"
-          >
-            View Projects
-          </Link>
 
         </div>
 

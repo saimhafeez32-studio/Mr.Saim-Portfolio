@@ -1,48 +1,65 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, memo } from "react";
 
 import ContactModal from "../ContactModal/ContactModal";
+
 import "./Hero.css";
 
 const Hero = () => {
   const [openContact, setOpenContact] = useState(false);
 
+  const handleOpenContact = () => {
+    setOpenContact(true);
+  };
+
+  const handleCloseContact = () => {
+    setOpenContact(false);
+  };
+
   return (
     <>
-      <section className="hero" id="home">
-        <div className="hero-overlay"></div>
+      {/* ===================================
+          HERO SECTION
+      =================================== */}
 
+      <section className="hero" aria-labelledby="hero-title">
+
+        {/* Background Overlay */}
+        <div
+          className="hero-overlay"
+          aria-hidden="true"
+        />
+
+        {/* Hero Content */}
         <div className="hero-container">
+
           <div className="hero-content">
 
-            <h1>
-              Hello, I'm
+            {/* Main Heading */}
+            <h1 id="hero-title">
+              Hello I'm
               <br />
-              <span>Saim</span>
+              <span>Saim.</span>
             </h1>
 
-            <div className="hero-subtitle">
+            {/* Subtitle */}
+            <div
+              className="hero-subtitle"
+              aria-label="Professional skills"
+            >
               <span>Modern Web Developer</span>
               <span>UI/UX Designer</span>
               <span>Graphic Designer</span>
               <span>Digital Marketing Specialist</span>
             </div>
 
+            {/* CTA */}
             <div className="hero-buttons">
-
-              <Link
-                to="/projects"
-                className="primary-btn"
-                aria-label="View Projects"
-              >
-                View Projects
-              </Link>
 
               <button
                 type="button"
                 className="secondary-btn"
-                aria-label="Let's Connect"
-                onClick={() => setOpenContact(true)}
+                onClick={handleOpenContact}
+                aria-label="Open contact information"
               >
                 Let's Connect
               </button>
@@ -50,15 +67,26 @@ const Hero = () => {
             </div>
 
           </div>
+
         </div>
+
       </section>
+
+      {/* ===================================
+          CONTACT MODAL
+      =================================== */}
 
       <ContactModal
         open={openContact}
-        onClose={() => setOpenContact(false)}
+        onClose={handleCloseContact}
       />
     </>
   );
 };
 
-export default Hero;
+/*
+  Prevent unnecessary re-renders when
+  parent components update without changing
+  Hero's props.
+*/
+export default memo(Hero);

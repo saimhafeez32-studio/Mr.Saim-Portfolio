@@ -4,103 +4,147 @@
 
 .navbar {
   position: fixed;
+
   top: 0;
   left: 0;
+
   width: 100%;
+
   z-index: 1000;
+
   padding: 22px 0;
+
   transition:
-    background-color 0.35s ease,
+    background 0.35s ease,
     backdrop-filter 0.35s ease,
     box-shadow 0.35s ease,
     padding 0.35s ease;
 }
 
-.navbar.scrolled {
-  background: rgba(255, 255, 255, 0.82);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  padding: 12px 0;
-}
 
 /* ===================================
-   NAVBAR INNER
+   NAVBAR CONTAINER
 =================================== */
 
-.navbar-inner {
-  width: min(92%, 1400px);
-  margin: 0 auto;
-
+.navbar-container {
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
 }
+
 
 /* ===================================
    LOGO
 =================================== */
 
 .logo {
-  display: inline-flex;
-  align-items: center;
-
   font-size: 2rem;
+
   font-weight: 800;
+
   letter-spacing: -1px;
 
   text-decoration: none;
 
+  transition: color 0.35s ease;
+}
+
+
+/* Home — White */
+
+.navbar .logo,
+.navbar .logo span {
   color: #ffffff;
-
-  transition:
-    color 0.35s ease,
-    transform 0.35s ease;
 }
 
-.logo span {
-  color: #ffffff;
+
+/* About / Other Pages — Dark */
+
+.navbar.navbar-light .logo,
+.navbar.navbar-light .logo span {
+  color: #111111;
 }
 
-.logo:hover {
-  transform: translateY(-2px);
+
+/* ===================================
+   SCROLLED NAVBAR
+=================================== */
+
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.86);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08);
+
+  padding: 12px 0;
 }
+
+
+/* Scrolled Logo */
 
 .navbar.scrolled .logo,
 .navbar.scrolled .logo span {
   color: #111111;
 }
 
+
 /* ===================================
-   DESKTOP MENU
+   DESKTOP NAV
 =================================== */
 
 .nav {
   display: flex;
+
   align-items: center;
+
   gap: 42px;
 }
+
 
 .nav a {
   position: relative;
 
   font-size: 1rem;
+
   font-weight: 600;
 
   color: #ffffff;
+
   text-decoration: none;
 
-  transition: color 0.3s ease;
+  transition:
+    color 0.3s ease;
 }
+
+
+/* About / Other Pages */
+
+.navbar.navbar-light .nav a {
+  color: #111111;
+}
+
+
+/* Scrolled */
 
 .navbar.scrolled .nav a {
   color: #111111;
 }
 
+
+/* ===================================
+   NAV UNDERLINE
+=================================== */
+
 .nav a::after {
   content: "";
 
   position: absolute;
+
   left: 0;
   bottom: -6px;
 
@@ -109,13 +153,17 @@
 
   background: #4b5563;
 
+  border-radius: 2px;
+
   transition: width 0.3s ease;
 }
+
 
 .nav a:hover::after,
 .nav a.active::after {
   width: 100%;
 }
+
 
 /* ===================================
    MENU BUTTON
@@ -127,33 +175,33 @@
   align-items: center;
   justify-content: center;
 
-  width: 44px;
-  height: 44px;
+  background: none;
 
-  padding: 0;
-
-  background: transparent;
   border: none;
-
-  color: #ffffff;
 
   cursor: pointer;
 
-  transition:
-    color 0.3s ease,
-    transform 0.3s ease;
+  color: #ffffff;
 
-  position: relative;
-  z-index: 1001;
+  transition: color 0.3s ease;
+
+  padding: 4px;
 }
 
-.menu-btn:hover {
-  transform: scale(1.05);
+
+/* About / Other Pages */
+
+.navbar.navbar-light .menu-btn {
+  color: #111111;
 }
+
+
+/* Scrolled */
 
 .navbar.scrolled .menu-btn {
   color: #111111;
 }
+
 
 /* ===================================
    MOBILE OVERLAY
@@ -161,6 +209,7 @@
 
 .mobile-overlay {
   position: fixed;
+
   inset: 0;
 
   background: rgba(0, 0, 0, 0.35);
@@ -169,6 +218,7 @@
   -webkit-backdrop-filter: blur(4px);
 
   opacity: 0;
+
   visibility: hidden;
 
   transition:
@@ -178,31 +228,26 @@
   z-index: 998;
 }
 
+
 .mobile-overlay.active {
   opacity: 1;
+
   visibility: visible;
 }
 
+
 /* ===================================
-   TABLET & MOBILE
+   TABLET / MOBILE
 =================================== */
 
 @media (max-width: 768px) {
-  .navbar {
-    padding: 18px 0;
-  }
-
-  .navbar.scrolled {
-    padding: 10px 0;
-  }
-
-  .navbar-inner {
-    width: min(92%, 1400px);
-  }
 
   .menu-btn {
     display: flex;
+
+    z-index: 1001;
   }
+
 
   .nav {
     position: fixed;
@@ -216,51 +261,65 @@
     background: #ffffff;
 
     display: flex;
+
     flex-direction: column;
+
     justify-content: center;
+
     align-items: center;
 
     gap: 34px;
 
     transition: right 0.4s ease;
 
-    box-shadow: -20px 0 40px rgba(0, 0, 0, 0.08);
+    box-shadow:
+      -20px 0 40px rgba(0, 0, 0, 0.08);
 
     z-index: 999;
   }
+
 
   .nav.active {
     right: 0;
   }
 
+
   .nav a,
+  .navbar.navbar-light .nav a,
   .navbar.scrolled .nav a {
     color: #111111 !important;
 
     font-size: 1.2rem;
+
     font-weight: 700;
   }
 
+
   .nav a::after {
-    bottom: -8px;
+    bottom: -7px;
   }
+
 }
+
 
 /* ===================================
    SMALL MOBILE
 =================================== */
 
 @media (max-width: 480px) {
+
   .logo {
     font-size: 1.6rem;
   }
+
 
   .nav {
     width: 240px;
   }
 
-  .nav a,
-  .navbar.scrolled .nav a {
+
+  .nav a {
     font-size: 1.1rem;
   }
+
 }

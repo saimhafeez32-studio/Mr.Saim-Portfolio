@@ -1,23 +1,34 @@
-import { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+
 import "./Navbar.css";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  const location = useLocation();
+
+  const isHomePage = location.pathname === "/";
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -31,10 +42,18 @@ const Navbar = () => {
     setMenuOpen(false);
   };
 
+  const navbarClass = [
+    "navbar",
+    !isHomePage ? "navbar-light" : "",
+    scrolled ? "scrolled" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
     <>
-      <header className={scrolled ? "navbar scrolled" : "navbar"}>
-        <div className="navbar-inner">
+      <header className={navbarClass}>
+        <div className="container navbar-container">
           <Link to="/" className="logo" onClick={closeMenu}>
             Mr.<span>Saim</span>
           </Link>
@@ -48,10 +67,6 @@ const Navbar = () => {
               About
             </NavLink>
 
-            <NavLink to="/projects" onClick={closeMenu}>
-              Projects
-            </NavLink>
-
             <NavLink to="/contact" onClick={closeMenu}>
               Contact
             </NavLink>
@@ -62,7 +77,6 @@ const Navbar = () => {
             onClick={() => setMenuOpen((prev) => !prev)}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
-            type="button"
           >
             {menuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
@@ -70,9 +84,12 @@ const Navbar = () => {
       </header>
 
       <div
-        className={menuOpen ? "mobile-overlay active" : "mobile-overlay"}
+        className={
+          menuOpen
+            ? "mobile-overlay active"
+            : "mobile-overlay"
+        }
         onClick={closeMenu}
-        aria-hidden="true"
       />
     </>
   );

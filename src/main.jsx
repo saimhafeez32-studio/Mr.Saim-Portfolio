@@ -8,15 +8,25 @@ import App from "./App";
 
 import "./styles/index.css";
 
+/* =========================================
+   SMOOTH SCROLL
+========================================= */
+
 function SmoothScroll() {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.15,
+      duration: 1.1,
+
       smoothWheel: true,
-      syncTouch: true,
+
       wheelMultiplier: 0.9,
+
       touchMultiplier: 1,
+
+      syncTouch: true,
+
       infinite: false,
+
       autoRaf: true,
     });
 
@@ -27,6 +37,10 @@ function SmoothScroll() {
 
   return null;
 }
+
+/* =========================================
+   APP START
+========================================= */
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

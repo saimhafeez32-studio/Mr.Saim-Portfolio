@@ -1,109 +1,204 @@
-/* Google Font */
+/* =========================================
+   GOOGLE FONT
+========================================= */
+
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html{
-    scroll-behavior:smooth;
+
+/* =========================================
+   HTML
+========================================= */
+
+html {
+  scroll-behavior: smooth;
 }
 
-body{
-    font-family:"Inter",sans-serif;
-    color:#ffffff;
 
-    /* Background Image */
-    background-image:
-        linear-gradient(
-            rgba(255,255,255,.15),
-            rgba(255,255,255,.10)
-        ),
-        url("/bg-image.jpg");
+/* =========================================
+   BODY
+========================================= */
 
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-    background-attachment:fixed;
+body {
+  font-family: "Inter", sans-serif;
+
+  color: #ffffff;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.15),
+      rgba(255, 255, 255, 0.10)
+    ),
+    url("/bg-image.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Better scrolling performance */
+  background-attachment: scroll;
+
+  /* Rendering improvements */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  overflow-x: hidden;
 }
 
-#root{
-    width:100%;
-    min-height:100vh;
+
+/* =========================================
+   ROOT
+========================================= */
+
+#root {
+  width: 100%;
+  min-height: 100vh;
 }
 
-/* Sections */
 
-section{
-    position:relative;
-    width:100%;
-    padding:120px 8%;
+/* =========================================
+   SECTIONS
+========================================= */
+
+section {
+  position: relative;
+  width: 100%;
+  padding: 120px 8%;
 }
 
-/* Matching Background Colors */
 
-.hero{
-    min-height:100vh;
+/* =========================================
+   PAGE BACKGROUNDS
+========================================= */
+
+.hero {
+  min-height: 100vh;
 }
 
-.about{
-    background:#8d8d8d;
+.about {
+  background: #8d8d8d;
 }
 
-.skills{
-    background:#7a7a7a;
+.skills {
+  background: #7a7a7a;
 }
 
-.projects{
-    background:#676767;
+.contact {
+  background: #565656;
 }
 
-.contact{
-    background:#565656;
+footer {
+  background: #444444;
 }
 
-footer{
-    background:#444444;
+
+/* =========================================
+   TYPOGRAPHY
+========================================= */
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 700;
+  color: #ffffff;
 }
 
-/* Typography */
-
-h1,h2,h3,h4{
-    font-weight:700;
-    color:#fff;
+p {
+  color: #efefef;
+  line-height: 1.8;
 }
 
-p{
-    color:#efefef;
-    line-height:1.8;
+
+/* =========================================
+   IMAGES
+========================================= */
+
+img {
+  max-width: 100%;
+  display: block;
 }
 
-/* Images */
 
-img{
-    max-width:100%;
-    display:block;
+/* =========================================
+   LINKS
+========================================= */
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-/* Links */
 
-a{
-    text-decoration:none;
-    color:inherit;
+/* =========================================
+   BUTTONS / INTERACTIVE ELEMENTS
+========================================= */
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* Responsive */
 
-@media(max-width:768px){
+/* =========================================
+   RESPONSIVE
+========================================= */
 
-section{
-    padding:90px 20px;
+@media (max-width: 768px) {
+  section {
+    padding: 90px 20px;
+  }
+
+  body {
+    background-attachment: scroll;
+  }
 }
 
-body{
-    background-attachment:scroll;
+
+/* =========================================
+   PAGE LOADER
+========================================= */
+
+.page-loader {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+
+  color: #4b5563;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
+.page-loader span {
+  animation: pageLoaderPulse 1.2s ease-in-out infinite;
+}
+
+
+@keyframes pageLoaderPulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
