@@ -37,7 +37,7 @@ const About = () => {
 
             <h1 className="about-hero-title">
               <span className="hero-line">
-                More than
+                More then
               </span>
 
               <span className="hero-line">
